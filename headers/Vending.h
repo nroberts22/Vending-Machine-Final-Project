@@ -18,10 +18,10 @@ class Vending{
         string getName();
         double getCost();
         string getSize();
+        virtual string toString();
         void vend();
         void readPayment();
         void createPayment();
-
 
 };
 
