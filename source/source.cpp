@@ -18,7 +18,8 @@ int main(){
     Vending* coke=new Drinks("Coke", 1.50, "16 oz", "Classic", "Bottle");
     VM.push_back(coke);
 
-    
 
+    string str=doritos->toString();
+    cout<< str<< endl;
     return 0;
 }

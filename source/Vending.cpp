@@ -18,10 +18,10 @@ using namespace std;
     string Vending::getSize(){//returns size
         return _size;
     }
-    string Vending::toString(){//converts all values of a Vending object into a string to print out
-        string str="Name: "+ _name + " Cost: $" + to_string(_cost) + " Size: " + _size; 
-        return str;
-    }
+    // string Vending::toString(){//converts all values of a Vending object into a string to print out
+    //     string str="Name: "+ _name + " Cost: $" + to_string(_cost) + " Size: " + _size; 
+    //     return str;
+    // }
     void vend();
     void readPayment();
     void createPayment();

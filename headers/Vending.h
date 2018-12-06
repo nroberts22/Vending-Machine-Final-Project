@@ -18,7 +18,7 @@ class Vending{
         string getName();
         double getCost();
         string getSize();
-        virtual string toString();
+        virtual string toString()=0;
         void vend();
         void readPayment();
         void createPayment();

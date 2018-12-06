@@ -16,6 +16,11 @@ class Drinks : public Flavor{
         string getType(){
             return _type;//returns type of drink container
         }
+        string toString(){
+            string str=_size + " "+ _type + " of " + _flavor + " " + _name+ ". Cost: $"+ to_string(_cost);
+            //string str="Name: "+ _name + " Cost: $" + to_string(_cost) + " Size: " + _size + " Flavor: " + _flavor + " Type: " + _type; 
+            return str;
+        }
 };
 
 #endif

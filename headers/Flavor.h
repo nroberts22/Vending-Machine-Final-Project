@@ -1,4 +1,4 @@
-#ifndef FLAVOR_H
+#ifndef FLAVOR_H_
 #define FLAVOR_H_
 
 #include <string>
@@ -14,6 +14,11 @@ class Flavor : public Vending{
         }
         string getFlavor(){//returns flavor
             return _flavor;
+        }
+        string toString(){
+            string str=_size + " "+ _flavor + " " + _name + ". Cost: $"+ to_string(_cost);
+            //string str="Name: "+ _name + " Cost: $" + to_string(_cost) + " Size: " + _size + " Flavor: " + _flavor; 
+            return str;
         }
 
 };
