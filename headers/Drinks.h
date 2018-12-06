@@ -18,9 +18,8 @@ class Drinks : public Flavor{
         }
         string toString(){
             string str=_size + " "+ _type + " of " + _flavor + " " + _name+ ". Cost: $"+ to_string(_cost);
-            //string str="Name: "+ _name + " Cost: $" + to_string(_cost) + " Size: " + _size + " Flavor: " + _flavor + " Type: " + _type; 
             return str;
-        }
+        }//overrides flavor's toString function, and converts drink objects into a string line
 };
 
 #endif

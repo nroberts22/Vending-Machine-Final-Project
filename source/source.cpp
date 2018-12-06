@@ -21,5 +21,6 @@ int main(){
 
     string str=doritos->toString();
     cout<< str<< endl;
+    cout<< doritos<< endl;
     return 0;
 }

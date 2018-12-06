@@ -18,12 +18,14 @@ class Vending{
         string getName();
         double getCost();
         string getSize();
-        virtual string toString()=0;
+        virtual string toString()=0;//virtual toString function for all classes
         void vend();
         void readPayment();
         void createPayment();
+       
 
 };
+    ostream& operator<<(ostream &output, Vending* v1); 
 
 
 #endif

@@ -19,7 +19,7 @@ class Flavor : public Vending{
             string str=_size + " "+ _flavor + " " + _name + ". Cost: $"+ to_string(_cost);
             //string str="Name: "+ _name + " Cost: $" + to_string(_cost) + " Size: " + _size + " Flavor: " + _flavor; 
             return str;
-        }
+        }//converts flavor objects, but actually only snacks objects into a string line
 
 };
 
