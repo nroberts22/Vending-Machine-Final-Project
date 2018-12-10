@@ -12,6 +12,9 @@ class Payment{
 
     public:
         Payment(double amount);
+        void addValue(double value);
+        double getValue();
+        void deleteFile();
 
 
 
