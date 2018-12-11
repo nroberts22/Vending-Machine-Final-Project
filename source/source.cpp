@@ -17,7 +17,9 @@ void printMachine(vector<Vending*> VM){//prints out representation of vending ma
     double test=VM.size();
     double rows=ceil(test/3);//finds row amount by rounding up after dividing by 3
     int count=0;
-    
+    cout<< ""<< endl;
+    cout<< "Nik's Dynamic Vending Machine"<< endl;
+    cout<< ""<< endl;
     for(int i=0;i<rows;i++){//checks what the prefix should be based off of order(first 3 are a, second 3 are b, third 3 are c)
         if(count==0||count==1||count==2)
         {
@@ -37,6 +39,7 @@ void printMachine(vector<Vending*> VM){//prints out representation of vending ma
         }
         cout<< ""<< endl;
     }
+    cout<< ""<< endl;
     cout<<"Vending List: "<< endl;
     for(int q=0;q<VM.size();q++){//checks what the prefix should be (same as above)
         if(q==0||q==1||q==2)
@@ -51,10 +54,11 @@ void printMachine(vector<Vending*> VM){//prints out representation of vending ma
         }//prints out full description of each vending object to let the user know the price and any additional info
         cout<< VM[q];
     }
-
+    cout<< ""<< endl;
 }
 
 int main(){
+    // Vending objects
     vector< Vending* > VM;
     Vending* mms=new Sweets("M&Ms", 1.75, "King Size");
     VM.push_back(mms);
@@ -64,14 +68,33 @@ int main(){
     VM.push_back(coke);
     Vending* pretzels=new Snacks("Pretzels", 1.50, "Snack Size", "Salted");
     VM.push_back(pretzels);
+    Vending* juicyFruit=new Sweets("Juicy Fruit", 1.00, "5 Pack");
+    VM.push_back(juicyFruit);
+    Vending* drPepper=new Drinks("Dr.Pepper", 1.50, "16 oz", "Cherry", "Can");
+    VM.push_back(drPepper);
+    Vending* chexMix=new Snacks("Chex Mix", 2.00, "Snack Size", "Bold");
+    VM.push_back(chexMix);
+    Vending* snickers=new Sweets("Snickers", 1.25, "Regular Size");
+    VM.push_back(snickers);
+    Vending* trailMix=new Snacks("Trail Mix", 1.50, "Share Size", "Classic");
+    VM.push_back(trailMix);
+    
+
 
 
     bool check=false;
     
-    cout<< "Welcome to Nik's Vending Machine! "<< endl;
+    cout<< "Welcome to Nik's Dynamic Vending Machine! "<< endl;
     double value;
     cout<< "How much money would you like on your Vending Card(In Dollors)? You can use this card to purchase Vending objects. ";
     cin>>value;
+    if(value>0){
+        cout<< "Your card balance is $"<< value<< endl;
+    }
+    else{
+        cout<< "Invalid Input"<< endl;
+        check=true;
+    }
     Payment p1(value);//creates a payment object to keep track of the user's "card"
 
     while(check==false && VM.size()>0){
@@ -95,7 +118,7 @@ int main(){
             }else if(row=='b'||row=='B'){
                 buyValue=number+2;
             } else if(row=='c'||row=='C'){
-                buyValue=number+3;
+                buyValue=number+5;
             }else {
                 cout<< "Invalid Input"<< endl;
                 break;
@@ -119,7 +142,7 @@ int main(){
         }
     }
     p1.deleteFile();
-    cout<< "Thank you for visiting Nik's Vending Machine!"<< endl;
+    cout<< "Thank you for visiting Nik's Dynamic Vending Machine!"<< endl;
     
 
 
