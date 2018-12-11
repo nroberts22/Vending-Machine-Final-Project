@@ -23,13 +23,13 @@ void printMachine(vector<Vending*> VM){//prints out representation of vending ma
     for(int i=0;i<rows;i++){//checks what the prefix should be based off of order(first 3 are a, second 3 are b, third 3 are c)
         if(count==0||count==1||count==2)
         {
-            cout<< "A:: ";
+            cout<< "A) ";
         }
         if(count==3||count==4||count==5){
-            cout<< "B:: ";
+            cout<< "B) ";
         }
         if(count==6||count==7||count==8){
-            cout<< "C:: ";
+            cout<< "C) ";
         }
         for(int z=0; z<3;z++){//prints out names
             if(count<VM.size()){
@@ -51,14 +51,14 @@ void printMachine(vector<Vending*> VM){//prints out representation of vending ma
         }
         if(q==6||q==7||q==8){
             cout<< "C"<<(q-5)<<": ";
-        }//prints out full description of each vending object to let the user know the price and any additional info
+        }//prints out full description of each vending object to let the user know the price and any additional info such as flavor
         cout<< VM[q];
     }
     cout<< ""<< endl;
 }
 
 int main(){
-    // Vending objects
+    // Vending object pointers
     vector< Vending* > VM;
     Vending* mms=new Sweets("M&Ms", 1.75, "King Size");
     VM.push_back(mms);
@@ -79,16 +79,12 @@ int main(){
     Vending* trailMix=new Snacks("Trail Mix", 1.50, "Share Size", "Classic");
     VM.push_back(trailMix);
     
-
-
-
     bool check=false;
-    
     cout<< "Welcome to Nik's Dynamic Vending Machine! "<< endl;
     double value;
-    cout<< "How much money would you like on your Vending Card(In Dollors)? You can use this card to purchase Vending objects. ";
+    cout<< "How much money would you like on your Vending Card(In Dollars)? You can use this card to purchase Vending objects. ";
     cin>>value;
-    if(value>0){
+    if(value>0){//checks the user input for a positive value
         cout<< "Your card balance is $"<< value<< endl;
     }
     else{
@@ -96,7 +92,6 @@ int main(){
         check=true;
     }
     Payment p1(value);//creates a payment object to keep track of the user's "card"
-
     while(check==false && VM.size()>0){
         char charCheck;
         cout<< "If you would like to continue, please type y, otherwise type any other key: ";
@@ -133,9 +128,6 @@ int main(){
             else{
                 cout<< "Sorry, you do not have enough value on your card to purchase this item"<< endl;
             }
-
-            
-
         }
         else{
             check=true;
@@ -143,23 +135,5 @@ int main(){
     }
     p1.deleteFile();
     cout<< "Thank you for visiting Nik's Dynamic Vending Machine!"<< endl;
-    
-
-
-    // string str=doritos->toString();
-    // cout<< str<< endl;
-    // cout<< doritos<< endl;
-
-    // Payment p1(420.69);
-    // p1.addValue(100.31);
-    // cout<< p1.getValue()<< endl;
-    // p1.deleteFile();
-    // return 0;
-
-
-
-
-
-
-
+    return 0;
 }

@@ -6,7 +6,7 @@
 #include "Flavor.h"
 
 class Drinks : public Flavor{
-    private:
+    protected:
         string _type;// variable to tell what type of drink container: bottle or can
     
     public: 

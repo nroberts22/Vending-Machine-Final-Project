@@ -20,9 +20,7 @@ class Vending{
         double getCost();
         string getSize();
         virtual string toString()=0;//virtual toString function for all classes
-        void vend();
-        void readPayment();
-        void createPayment();
+        
        
 
 };

@@ -19,10 +19,7 @@ using namespace std;
     string Vending::getSize(){//returns size
         return _size;
     }
-    void vend();
-    void readPayment();
-    void createPayment();
-    ostream& operator<<(ostream &output, Vending* v1){//overloaded << operator to print out vending objects
+    ostream& operator<<(ostream &output, Vending* v1){//overloaded << operator to print out the toString call of the vending objects
         output<< v1->toString()<< endl;
         return output;
     }
