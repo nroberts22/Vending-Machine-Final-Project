@@ -15,6 +15,7 @@ class Payment{
         void addValue(double value);
         double getValue();
         void deleteFile();
+        void subtractValue(double value);
 
 
 

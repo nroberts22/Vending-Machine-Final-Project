@@ -12,6 +12,7 @@ class Vending{
         string _name;
         double _cost;
         string _size;
+        
     
     public:
         Vending(string name, double cost, string size);

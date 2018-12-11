@@ -15,10 +15,10 @@ using namespace std;
 
 void printMachine(vector<Vending*> VM){//prints out representation of vending machine of a max of 9 objects
     double test=VM.size();
-    double rows=ceil(test/3);
+    double rows=ceil(test/3);//finds row amount by rounding up after dividing by 3
     int count=0;
     
-    for(int i=0;i<rows;i++){
+    for(int i=0;i<rows;i++){//checks what the prefix should be based off of order(first 3 are a, second 3 are b, third 3 are c)
         if(count==0||count==1||count==2)
         {
             cout<< "A:: ";
@@ -29,7 +29,7 @@ void printMachine(vector<Vending*> VM){//prints out representation of vending ma
         if(count==6||count==7||count==8){
             cout<< "C:: ";
         }
-        for(int z=0; z<3;z++){
+        for(int z=0; z<3;z++){//prints out names
             if(count<VM.size()){
                 cout<< (z+1)<< ": "<<"["<< VM[count]->getName()<< "] ";
                 count++;
@@ -38,7 +38,17 @@ void printMachine(vector<Vending*> VM){//prints out representation of vending ma
         cout<< ""<< endl;
     }
     cout<<"Vending List: "<< endl;
-    for(int q=0;q<VM.size();q++){
+    for(int q=0;q<VM.size();q++){//checks what the prefix should be (same as above)
+        if(q==0||q==1||q==2)
+        {
+            cout<< "A"<< (q+1)<<": ";
+        }
+        if(q==3||q==4||q==5){
+            cout<< "B"<<(q-2)<<": ";
+        }
+        if(q==6||q==7||q==8){
+            cout<< "C"<<(q-5)<<": ";
+        }//prints out full description of each vending object to let the user know the price and any additional info
         cout<< VM[q];
     }
 
@@ -57,10 +67,59 @@ int main(){
 
 
     bool check=false;
-    printMachine(VM);
-    // while(check==false){
-        
-    // }
+    
+    cout<< "Welcome to Nik's Vending Machine! "<< endl;
+    double value;
+    cout<< "How much money would you like on your Vending Card(In Dollors)? You can use this card to purchase Vending objects. ";
+    cin>>value;
+    Payment p1(value);//creates a payment object to keep track of the user's "card"
+
+    while(check==false && VM.size()>0){
+        char charCheck;
+        cout<< "If you would like to continue, please type y, otherwise type any other key: ";
+        cin>> charCheck;
+        if(charCheck=='y'||charCheck=='Y'){//entry answer to be able to continue to use vending machine
+            printMachine(VM);
+            char row;//keeps track of the row
+            int number;//keeps track of the number part of the index ie. A{1}
+            int buyValue;//index of vending machine used to search through vector
+            cout<< "What would you like to buy?(ex. 'A1'): " << endl;
+            cin>>row;
+            cin>>number;
+            if(number>3||number<1){//checks if the number is valid, otherwise breaks out of loop
+                cout<< "Invalid Input"<< endl;
+                break;
+            }
+            if(row=='a'||row=='A'){//checks if the row value is valid, otherwise breaks out of loop
+                buyValue=number-1;
+            }else if(row=='b'||row=='B'){
+                buyValue=number+2;
+            } else if(row=='c'||row=='C'){
+                buyValue=number+3;
+            }else {
+                cout<< "Invalid Input"<< endl;
+                break;
+            }
+            double cost=VM[buyValue]->getCost();
+            if(cost<p1.getValue()){//checks if there is enough value on card to purchase vending object
+                p1.subtractValue(cost);//charges the card for the object
+                cout<< "Here is your item: " << VM[buyValue]->getName()<< endl;
+                VM.erase(VM.begin()+buyValue);//deletes vending object from vector
+                cout<< "You have $"<< p1.getValue()<< " left on your card"<< endl;//prints out balance left on card
+            }
+            else{
+                cout<< "Sorry, you do not have enough value on your card to purchase this item"<< endl;
+            }
+
+            
+
+        }
+        else{
+            check=true;
+        }
+    }
+    p1.deleteFile();
+    cout<< "Thank you for visiting Nik's Vending Machine!"<< endl;
     
 
 

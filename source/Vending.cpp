@@ -8,6 +8,7 @@ using namespace std;
         _name=name;
         _cost=cost;
         _size=size;
+        
     }
     string Vending::getName(){//returns name
         return _name;
