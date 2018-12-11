@@ -57,28 +57,7 @@ void printMachine(vector<Vending*> VM){//prints out representation of vending ma
     cout<< ""<< endl;
 }
 
-int main(){
-    // Vending object pointers
-    vector< Vending* > VM;
-    Vending* mms=new Sweets("M&Ms", 1.75, "King Size");
-    VM.push_back(mms);
-    Vending* doritos=new Snacks("Doritos", 1.50, "Snack Size", "Nacho Cheese");
-    VM.push_back(doritos);
-    Vending* coke=new Drinks("Coke", 1.50, "16 oz", "Classic", "Bottle");
-    VM.push_back(coke);
-    Vending* pretzels=new Snacks("Pretzels", 1.50, "Snack Size", "Salted");
-    VM.push_back(pretzels);
-    Vending* juicyFruit=new Sweets("Juicy Fruit", 1.00, "5 Pack");
-    VM.push_back(juicyFruit);
-    Vending* drPepper=new Drinks("Dr.Pepper", 1.50, "16 oz", "Cherry", "Can");
-    VM.push_back(drPepper);
-    Vending* chexMix=new Snacks("Chex Mix", 2.00, "Snack Size", "Bold");
-    VM.push_back(chexMix);
-    Vending* snickers=new Sweets("Snickers", 1.25, "Regular Size");
-    VM.push_back(snickers);
-    Vending* trailMix=new Snacks("Trail Mix", 1.50, "Share Size", "Classic");
-    VM.push_back(trailMix);
-    
+void runMachine(vector<Vending*> VM){// runs the Vending machine
     bool check=false;
     cout<< "Welcome to Nik's Dynamic Vending Machine! "<< endl;
     double value;
@@ -135,5 +114,31 @@ int main(){
     }
     p1.deleteFile();
     cout<< "Thank you for visiting Nik's Dynamic Vending Machine!"<< endl;
+}
+
+int main(){
+    // Vending object pointers
+    vector< Vending* > VM;
+    Vending* mms=new Sweets("M&Ms", 1.75, "King Size");
+    VM.push_back(mms);
+    Vending* doritos=new Snacks("Doritos", 1.50, "Snack Size", "Nacho Cheese");
+    VM.push_back(doritos);
+    Vending* coke=new Drinks("Coke", 1.50, "16 oz", "Classic", "Bottle");
+    VM.push_back(coke);
+    Vending* pretzels=new Snacks("Pretzels", 1.50, "Snack Size", "Salted");
+    VM.push_back(pretzels);
+    Vending* juicyFruit=new Sweets("Juicy Fruit", 1.00, "5 Pack");
+    VM.push_back(juicyFruit);
+    Vending* drPepper=new Drinks("Dr.Pepper", 1.50, "16 oz", "Cherry", "Can");
+    VM.push_back(drPepper);
+    Vending* chexMix=new Snacks("Chex Mix", 2.00, "Snack Size", "Bold");
+    VM.push_back(chexMix);
+    Vending* snickers=new Sweets("Snickers", 1.25, "Regular Size");
+    VM.push_back(snickers);
+    Vending* trailMix=new Snacks("Trail Mix", 1.50, "Share Size", "Classic");
+    VM.push_back(trailMix);
+    
+
+    runMachine(VM);//calls run function
     return 0;
 }
